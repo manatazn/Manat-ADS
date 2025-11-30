@@ -3,46 +3,30 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-<title id="pageTitle">Manat AZ</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-<script src='//libtl.com/sdk.js' data-zone='10024800' data-sdk='show_10024800'></script>
+<title id="pageTitle">Qazanc Pay</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="//libtl.com/sdk.js" data-zone="10258575" data-sdk="show_10258575"></script>
 <style>
-/* --- YENİ RENG DƏYİŞƏNLƏRİ (VARS) - DEEP AZURE TEMA --- */
+/* --- RƏNG DƏYİŞƏNLƏRİ (VARS) - SABİT AY TEMA (DARK THEME) --- */
 :root {
-  /* LIGHT TEMA (Ağ/Firuzeyi) - Default */
-  --bg-start: #ffffff; 
-  --bg-end: #f5f5f5;   
-  --card-bg: rgba(255, 255, 255, 0.9); 
-  --card-border: rgba(0, 0, 0, 0.08);
-  --text-light: #ffffff;
-  --text-dark: #1A202C;
-  --accent: #00A389; /* Əsas Vurğu: Tünd Yasıl/Firuzeyi */
-  --secondary-accent: #FFC107; /* Köməkçi Vurğu: Qızılı/Narıncı */
-  --menu-bg: rgba(255, 255, 255, 0.7);
-  --progress-bg: rgba(0, 0, 0, 0.08);
-  --input-text: #1A202C; 
-
-  /* Gradientler */
-  --btn-gradient-start: #00796B; /* Tünd Yasıl */
-  --btn-gradient-end: #00BCD4;   /* Firuzeyi */
-  --btn-shadow: rgba(0, 121, 107, 0.5); 
-  --secondary-btn-gradient-start: #FFD700; /* Qızılı */
-  --secondary-btn-gradient-end: #FFA000;   /* Tünd Qızılı */
-}
-
-/* DARK TEMA (Qara/Firuzeyi) */
-body.dark-theme {
-  --bg-start: #1A202C; 
-  --bg-end: #2D3748;   
-  --card-bg: rgba(45, 55, 72, 0.95); 
+  /* DARK TEMA (Qara/Mavi-Bənövşəyi) */
+  --bg-start: #1e1e3f; /* Tünd Bənövşəyi Fon */
+  --bg-end: #2a2a5a;   /* Daha Tünd Bənövşəyi Fon */
+  --card-bg: rgba(30, 30, 60, 0.95); 
   --card-border: rgba(255, 255, 255, 0.15);
   --text-light: #ffffff;
-  --text-dark: #edf2f7;
-  --accent: #00BCD4; 
-  --secondary-accent: #FFD700; 
-  --menu-bg: rgba(0, 0, 0, 0.5);
+  --text-dark: #e0e0f0; /* Açıq Mavi/Bənövşəyi Mətn */
+  --accent: #9370DB; /* Orta Bənövşəyi */
+  --menu-bg: rgba(0, 0, 0, 0.3);
   --progress-bg: rgba(255, 255, 255, 0.15);
   --input-text: #ffffff; 
+
+  /* DARK TEMA Gradientləri */
+  --btn-gradient-start: #9370DB; /* Orta Bənövşəyi */
+  --btn-gradient-end: #4169E1; /* Kral Mavisi */
+  --btn-shadow: rgba(147, 112, 219, 0.4); 
+  --secondary-btn-gradient-start: #4169E1;
+  --secondary-btn-gradient-end: #6699ff;
 }
 
 /* --- ÜMUMİ STİLLƏR --- */
@@ -51,65 +35,62 @@ body{
   font-family:'Inter',sans-serif;
   background:linear-gradient(135deg,var(--bg-start),var(--bg-end));
   background-size:400% 400%;
-  animation:bgMove 16s ease infinite;
+  animation:bgMove 12s ease infinite;
   color:var(--text-dark);
   min-height:100vh;
   user-select:none;
   -webkit-user-select:none;
   -webkit-tap-highlight-color:transparent;
-  transition: background-color 0.7s, color 0.7s; 
+  /* Dark theme üçün keçid ləğv edildi, çünki tema sabitdir */
 }
 @keyframes bgMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+  0%{background-position:0% 50;}
+  50%{background-position:100% 50;}
+  100%{background-position:0% 50;}
 }
 
+/* Yuxarı boşluğu azaltmaq */
 .container{max-width:480px;margin:auto;padding:20px;padding-top:20px;} 
 
-/* DİL VƏ TEMA SEÇİMİ */
+/* DİL SEÇİMİ (YENİ DÜZƏNLƏMƏ) */
 .top-controls {
     display: flex;
-    justify-content: space-between; 
+    justify-content: flex-end; /* Yalnız dil seçimi qaldı */
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 .lang-switcher-container {
     position: relative;
 }
-.lang-current-btn, .theme-toggle-btn {
-    padding: 8px 12px;
+.lang-current-btn {
+    padding: 6px 10px;
     border: 1px solid var(--card-border);
     background: var(--card-bg);
     color: var(--text-dark);
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
-    height: 45px; 
+    height: 40px; 
 }
 .lang-current-btn span {
     margin-right: 5px; 
 }
-.lang-current-btn:hover, .theme-toggle-btn:hover {
-    box-shadow: 0 4px 20px rgba(0,163,137,0.3);
-}
-
-.theme-icon {
-    font-size: 22px;
+.lang-current-btn:hover {
+    box-shadow: 0 4px 15px var(--btn-shadow);
 }
 
 .lang-dropdown {
     position: absolute;
-    top: 105%; 
+    top: 100%; 
     right: 0;
     margin-top: 5px;
     background: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     overflow: hidden;
     z-index: 10;
     min-width: 60px;
@@ -122,7 +103,7 @@ body{
 }
 .lang-dropdown button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border: none;
     background: none;
     color: var(--text-dark);
@@ -138,40 +119,34 @@ body{
     color: var(--text-light);
 }
 
-.page{display:none;animation:fadeIn .5s ease;}
+.page{display:none;animation:fadeIn .4s ease;}
 .page.active{display:block;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
 /* Balans və Kart Dizaynı */
-.balance-card, .ad-card, .task-card{
+.balance-card, .ad-card, .task-card, .referral-card{
   background:var(--card-bg);
   border-radius:25px;
-  padding:25px 20px;
+  padding:20px 18px;
   margin-bottom:20px;
-  box-shadow:0 12px 40px rgba(0,0,0,0.2);
+  box-shadow:0 12px 40px rgba(0,0,0,0.25);
   backdrop-filter:blur(14px);
   text-align:center;
   border:1px solid var(--card-border);
   transition: background-color 0.5s, box-shadow 0.5s;
 }
-.balance-card h3{font-size:18px;color:var(--accent);margin-bottom:8px;letter-spacing:0.5px;font-weight:700;}
-.balance-card .amount{font-size:36px;font-weight:900;margin-top:5px;color:var(--text-dark);text-shadow:0 2px 5px rgba(0,0,0,0.1);}
-.balance-card .usd{font-size:15px;color:var(--text-dark);opacity:0.7;margin-top:4px;font-weight:600;}
+.balance-card h3{font-size:16px;color:var(--accent);margin-bottom:8px;letter-spacing:0.5px;}
+.balance-card .amount{font-size:32px;font-weight:700;margin-top:5px;color:var(--text-dark);text-shadow:0 2px 5px rgba(0,0,0,0.1);}
+.balance-card .usd{font-size:14px;color:var(--text-dark);opacity:0.7;margin-top:4px;}
 
-/* Metod Siyahısı (Çəkim Üsulları) */
-.method-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:15px 0;
-    justify-content:space-between;
-}
+/* Metod Siyahısı */
+.method-list{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0;justify-content:space-between;}
 .method{
-    flex:1 1 calc(33.333% - 8px); /* 3 sütunluq quruluş */
-    padding:16px 8px; 
-    border-radius:18px;
-    background:var(--card-bg); 
-    color:var(--text-dark);
+    flex:1 1 calc(50% - 10px);
+    padding:14px;
+    border-radius:14px;
+    background:linear-gradient(90deg,var(--btn-gradient-start),var(--btn-gradient-end)); 
+    color:var(--text-light);
     text-align:center;
     font-weight:700;
     cursor:pointer;
@@ -180,223 +155,154 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 120px;
+    height: 100px;
     position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border: 1px solid var(--card-border);
 }
-
-@media (max-width: 400px) {
-    .method {
-        flex: 1 1 calc(50% - 8px); /* Kiçik ekranlarda 2 sütun */
-    }
-}
-
-.method:hover{
-    transform:scale(1.03);
-    box-shadow:0 8px 25px var(--btn-shadow);
-}
+.method:hover{transform:scale(1.03);box-shadow:0 0 10px rgba(0,0,0,0.2);}
 .method-logo{
-    width: 60px;       
-    height: 60px;      
-    margin-bottom: 8px;
-    border-radius: 10px; 
+    width: 50px;       
+    height: 50px;      
+    margin-bottom: 6px;
+    border-radius: 8px; 
     object-fit: contain; 
     background-color: #fff;
-    padding: 6px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 4px; 
 }
 .method-logo.bank-logo {
-    border-radius: 8px; 
-    padding: 4px;
+    border-radius: 6px; 
+    padding: 2px;
 }
 .method-text {
-    font-size: 14px; 
-    font-weight: 800; 
+    font-size: 14px;
 }
 .min-withdraw-label {
     position: absolute;
-    bottom: 4px;
-    right: 4px;
+    bottom: 5px;
+    right: 5px;
     font-size: 10px;
-    font-weight: 700;
-    color: var(--text-dark); 
-    background: var(--secondary-accent);
-    padding: 2px 4px;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    font-weight: 600;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1px 4px;
+    border-radius: 4px;
 }
-
-/* Reklam Kartı */
-.ad-card h2{font-size:18px;color:var(--accent);margin-bottom:6px;font-weight:800;}
-.ad-card p{margin:4px 0;color:var(--text-dark);font-size:14px;}
-
-/* Tapşırıq Kartı */
-.task-card h2{font-size:18px;color:var(--accent);margin-bottom:6px;font-weight:800;}
-.task-card p{margin:4px 0;color:var(--text-dark);font-size:14px;}
-.task-card button{
-    width:100%;
-    margin-top:12px;
-    padding:14px;
-    font-size:15px;
-    font-weight:700;
-    border:none;
-    border-radius:16px;
-    background:linear-gradient(90deg,var(--secondary-btn-gradient-start),var(--secondary-btn-gradient-end)); 
-    color:var(--text-dark); 
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 6px 20px rgba(255,160,0,0.6);
-}
-.task-card button:hover{transform:scale(1.03);box-shadow:0 8px 25px rgba(255,160,0,0.8);}
-.task-card button.completed{background:gray !important;box-shadow:none !important;cursor:not-allowed !important;pointer-events:none !important;opacity:0.55; color:var(--text-light) !important;}
+.ad-card{margin-bottom:12px;}
+.ad-card h2{font-size:18px;color:var(--text-dark);margin-bottom:6px;}
+.ad-card p{margin:4px 0;color:var(--text-dark);font-size:13px;}
+.task-card{margin-bottom:10px;}
+.task-card h2{font-size:16px;color:var(--text-dark);margin-bottom:4px;}
+.task-card p{margin:2px 0;color:var(--text-dark);font-size:12px;}
+.task-card button{width:100%;margin-top:8px;padding:10px;font-size:13px;font-weight:700;border:none;border-radius:12px;background:linear-gradient(90deg,var(--secondary-btn-gradient-start),var(--secondary-btn-gradient-end)); 
+    color:var(--text-light);cursor:pointer;transition:0.3s;}
+.task-card button:hover{transform:scale(1.03);box-shadow:0 0 20px rgba(63, 110, 217, 0.6);}
+/* Düzəliş: Tamamlanmış düymənin CSS-i */
+.task-card button.completed{background:gray !important;box-shadow:none !important;cursor:not-allowed !important;pointer-events:none !important;opacity:0.55;}
+/* Gözləmə CSS-i */
 .task-card button.waiting {
-    background: var(--secondary-btn-gradient-start) !important;
+    background: #FFD700 !important; /* Qızılı sarı */
+    color: #1F2937 !important;
     cursor: wait !important;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
-.stats{display:flex;justify-content:space-around;margin-top:15px;}
-.stat{background:var(--progress-bg);border-radius:12px;padding:12px 18px;min-width: 110px;}
-.stat span{display:block;font-size:18px;font-weight:700;color:var(--text-dark);}
-.stat label{font-size:12px;color:var(--text-dark);opacity:0.7;}
-.progress{height:12px;background:var(--progress-bg);border-radius:6px;overflow:hidden;margin-top:15px;}
-.progress-fill{height:100%;background:var(--accent);width:0%;transition:width .6s;} 
+.stats{display:flex;justify-content:space-around;margin-top:12px;}
+.stat{background:var(--progress-bg);border-radius:10px;padding:10px 16px;}
+.stat span{display:block;font-size:16px;font-weight:700;color:var(--text-dark);}
+.stat label{font-size:11px;color:var(--text-dark);opacity:0.7;}
+.progress{height:10px;background:var(--progress-bg);border-radius:6px;overflow:hidden;margin-top:12px;}
+.progress-fill{height:100%;background:var(--accent);width:0%;transition:width .4s;} 
+.ad-btn{width:100%;margin-top:12px;padding:12px;font-size:14px;font-weight:700;border:none;border-radius:14px;color:var(--text-light);cursor:pointer;transition:0.3s;background:linear-gradient(90deg,var(--btn-gradient-start),var(--btn-gradient-end));box-shadow:0 0 16px var(--btn-shadow);}
+.ad-btn:hover:not(.waiting){transform:scale(1.03);box-shadow:0 0 20px var(--btn-shadow);}
 
-.ad-btn{
-    width:100%;
-    margin-top:18px;
-    padding:16px;
-    font-size:16px;
-    font-weight:900;
-    border:none;
-    border-radius:18px;
-    color:var(--text-light);
-    cursor:pointer;
-    transition:0.3s;
-    background:linear-gradient(90deg,var(--btn-gradient-start),var(--btn-gradient-end));
-    box-shadow:0 10px 30px var(--btn-shadow);
-}
-.ad-btn:hover:not(.waiting){transform:scale(1.03);box-shadow:0 12px 35px var(--btn-shadow);}
-.ad-btn.waiting {
-    background: linear-gradient(90deg, #9E9E9E, #607D8B) !important; 
-    box-shadow: 0 0 10px rgba(0,0,0,0.3) !important;
-    cursor: wait !important;
-    color: var(--text-light) !important;
-}
-
-/* --- MENU (SABİT DÜYMƏ) STİLİ --- */
+/* NAVİQASİYA PANELİ DÜZƏLİŞLƏRİ */
 .menu{
     position:fixed;
-    bottom:20px;
+    bottom:15px;
     left:50%;
     transform:translateX(-50%);
-    width:90%;
-    max-width:450px;
+    width:92%;
+    max-width:450px; 
     display:flex;
     justify-content:space-around;
     background:var(--menu-bg);
-    padding:12px;
-    border-radius:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.3);
-    backdrop-filter:blur(10px);
-    z-index: 100; /* Digər elementlərin üstündə olsun */
+    padding:8px 6px; 
+    border-radius:22px;
+    box-shadow:0 6px 20px rgba(0,0,0,.3);
+    backdrop-filter:blur(8px);
 }
 .menu button{
-    flex:1;
-    margin:0 8px;
-    padding:14px;
+    flex:1 1 30%; /* 3 düyməyə görə tənzimləndi */
+    margin:0 4px; 
+    padding:10px 4px; 
     border:none;
-    border-radius:18px;
-    background:var(--card-bg);
-    color:var(--text-dark);
-    font-weight:700;
-    transition:0.3s;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.menu button.active{
+    border-radius:16px;
     background:linear-gradient(90deg,var(--btn-gradient-start),var(--btn-gradient-end));
     color:var(--text-light);
-    box-shadow:0 6px 20px var(--btn-shadow);
-    transform: translateY(-2px);
+    font-weight:600; 
+    font-size: 11px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    transition:0.3s;
+}
+.menu button.active{
+    background:linear-gradient(90deg,var(--secondary-btn-gradient-start),var(--secondary-btn-gradient-end));
+    box-shadow:0 0 18px rgba(63, 110, 217, 0.6);
 }
 
-/* YENİ STİL: Sabit Menu üçün Boşluq Yaradır (Mütləqdir!) */
-.spacer-for-fixed-menu {
-    /* Menu hündürlüyü (təxminən 60px) + bottom boşluğu (20px) + əlavə boşluq */
-    height: 100px; 
-    width: 100%;
-}
-
-
-#form {
-    display: none; 
-    margin-top: 15px; /* Boşluq əlavə etdik */
-}
+#form{display:none;margin-top:12px;}
 #form input{
     width:100%;
-    padding:14px;
-    margin:8px 0;
-    border-radius:14px;
+    padding:12px;
+    margin:6px 0;
+    border-radius:12px;
     border:1px solid var(--card-border);
     background:var(--card-bg);
-    color:var(--input-text);
-    font-size: 16px;
+    color:var(--input-text); 
 }
 #form input::placeholder {
     color: var(--input-text); 
     opacity: 0.5; 
 }
-#form button{
-    width:100%;
-    padding:16px;
-    margin-top:12px;
-    border:none;
-    border-radius:18px;
-    background:linear-gradient(90deg,var(--secondary-btn-gradient-start),var(--secondary-btn-gradient-end));
-    color:var(--text-dark);
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 6px 20px rgba(255,160,0,0.6);
-}
-
-.alert{margin-top:8px;padding:12px;border-radius:12px; display: none;}
+#form button{width:100%;padding:14px;margin-top:8px;border:none;border-radius:14px;background:linear-gradient(90deg,var(--secondary-btn-gradient-start),var(--secondary-btn-gradient-end));color:var(--text-light);font-weight:700;cursor:pointer;}
+.alert{margin-top:6px;padding:10px;border-radius:10px;display:none;}
 .alert.error{background:#f8d7da;color:#842029;}
 .alert.success{background:#d1e7dd;color:#0f5132;}
 
 /* Dinamik Timer Bar üçün CSS */
 .timer-bar-container {
-  height: 8px;
+  height: 6px;
   width: 0%;
   border-radius: 4px;
-  margin-top: 8px;
+  margin-top: 6px;
+  /* Animasiya üçün yumşaq keçid */
   transition: width 1s linear; 
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
-/* Loading Screen - Manat AZ Temasına uyğunlaşdırıldı */
-#loadingScreen{position:fixed;top:0; left:0;width:100%; height:100%;background:radial-gradient(circle at 80% 80%, #00BCD4, #00796B 70%);display:flex;justify-content:center;align-items:center;z-index:99999;backdrop-filter:blur(8px);animation:fadeBg 8s linear infinite;transition:opacity .7s ease;}
-@keyframes fadeBg{0%{filter:brightness(1);}50%{filter:brightness(1.2);}100%{filter:brightness(1);}}
-.loader-box{text-align:center;animation:fadeIn 1s ease;position:relative;}
-.shine-circle{position:absolute;width:250px; height:250px;top:-80px; left:50%;transform:translateX(-50%);background:radial-gradient(circle, rgba(255,215,0,0.5), transparent 80%);filter:blur(50px);animation:pulse 4s infinite ease-in-out;}
-@keyframes pulse{0%,100%{opacity:.5;}50%{opacity:1;}}
-.loader-title{font-size:50px;font-weight:900;color:#FFD700; letter-spacing:3px;text-shadow:0 0 15px #FFA000, 0 0 40px rgba(255,215,0,0.8);margin-bottom:40px;}
-.loader-bar{width:320px;height:18px;border-radius:20px;background:rgba(255,255,255,0.15);overflow:hidden;position:relative;box-shadow:0 0 16px rgba(0,188,212,0.5);}
-.loader-fill{height:100%;width:0%;border-radius:20px;background:linear-gradient(90deg,#00796B,#00BCD4,#4FC3F7); animation:fillAnim 3s forwards ease-in-out;}
-@keyframes fillAnim{0%{width:0%;}100%{width:100%;}}
-.glow{background:linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent);position:absolute;top:0;left:0;height:100%;width:50%;animation:glowMove 3s infinite;}
-@keyframes glowMove{0%{transform:translateX(-100%);}100%{transform:translateX(300%);}}
-
-.loader-text{margin-top:16px;font-size:18px;color:#fff;letter-spacing:1px;animation:blink 1.5s infinite;}
+#loadingScreen{position:fixed;top:0; left:0;width:100%; height:100%;background:radial-gradient(circle at 20% 20%, #4e4376, #2b5876 70%);display:flex;justify-content:center;align-items:center;z-index:99999;backdrop-filter:blur(6px);animation:fadeBg 6s linear infinite;transition:opacity .7s ease;}
+@keyframes fadeBg{0%{filter:brightness(1);}50%{filter:brightness(1.3);}100%{filter:brightness(1);}}
+.loader-box{text-align:center;animation:fadeIn .8s ease;position:relative;}
+.shine-circle{position:absolute;width:220px; height:220px;top:-70px; left:50%;transform:translateX(-50%);background:radial-gradient(circle, rgba(255,255,255,0.35), transparent 80%);filter:blur(40px);animation:pulse 3s infinite ease-in-out;}
+@keyframes pulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+/* YENİLƏNDİ: Qazanc AZ -> Qazanc Pay, Rənglər dəyişdi */
+.loader-title{font-size:40px;font-weight:900;color:#6C63FF; letter-spacing:2px;text-shadow:0 0 12px #8E2DE2, 0 0 35px rgba(74, 0, 224, 0.9);margin-bottom:32px;}
+.loader-bar{width:300px;height:16px;border-radius:20px;background:rgba(255,255,255,0.15);overflow:hidden;position:relative;box-shadow:0 0 14px rgba(255,255,255,0.3);}
+.loader-fill{height:100%;width:0%;border-radius:20px;background:linear-gradient(90deg,#4e54c8,#8f94fb,#a8a4ff); animation:fillAnim 3s forwards ease-in-out;}
+@keyframes fillAnim{from{width:0%;}to{width:100%;}}
+.glow{position:absolute;top:0; left:0;width:100%; height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent);animation:shine 1.6s infinite;}
+@keyframes shine{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.loader-text{margin-top:14px;font-size:17px;color:#fff;letter-spacing:1px;animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.5;}}
 </style>
 </head>
 <body id="body">
 <div id="loadingScreen">
   <div class="loader-box">
     <div class="shine-circle"></div>
-    <div class="loader-title">Manat AZ</div>
+    <div class="loader-title">Qazanc Pay</div> 
     <div class="loader-bar">
       <div class="loader-fill"></div>
+      <div class="glow"></div>
     </div>
     <div class="loader-text" data-translate-key="loading">Yüklənir...</div>
   </div>
@@ -405,10 +311,6 @@ body{
 <div class="container">
   
   <div class="top-controls">
-    <button class="theme-toggle-btn" onclick="toggleTheme()">
-        <span id="themeIcon" class="theme-icon">🔆</span>
-    </button>
-    
     <div class="lang-switcher-container">
         <button class="lang-current-btn" onclick="toggleDropdown()">
             <span id="currentLangDisplay">AZ</span>
@@ -425,46 +327,46 @@ body{
   
   <div id="adsPage" class="page active">
     <div class="balance-card">
-      <h3 data-translate-key="currentBalance">Cari Balans</h3>
+      <h3 data-translate-key="currentBalance">Balans</h3>
       <div class="amount"><span id="balance">0.0000</span> <span id="currencySymbol">₼</span></div>
       <div class="usd"><span id="secondaryCurrencySymbol">$</span><span id="secondaryBalance">0.0000</span> <span id="secondaryCurrencyText">USD</span></div>
     </div>
 
     <div class="ad-card">
       <h2 data-translate-key="dailyAds">Günlük Reklamlar</h2>
-      <p data-translate-key="adReward">Hər reklama görə <b>0.001 ₼</b> qazanın</p>
+      <p data-translate-key="adReward">Hər reklama görə <b>0.001 ₼</b> qazanın</p> 
       <div class="stats">
         <div class="stat"><span id="adsCount">0</span><label data-translate-key="watched">İzlənən</label></div>
         <div class="stat"><span data-translate-key="maxCount">100</span><label data-translate-key="maximum">Maksimum</label></div>
       </div>
       <div class="progress"><div class="progress-fill" id="progress"></div></div>
-      <p style="margin-top:8px;font-weight:600;" data-translate-key="progressText">İrəliləyiş: <span id="progressTextSpan">0/100</span></p>
-      <button id="adBtn" class="ad-btn" data-translate-key="watchAd">Reklam İzlə</button>
+      <p style="margin-top:6px;" data-translate-key="progressText">İrəliləyiş: <span id="progressTextSpan">0/100</span></p>
+      <button id="adBtn" class="ad-btn" data-translate-key="watchAd">Reklam İzle</button>
       <div id="msg"></div>
     </div>
   </div>
 
   <div id="tasksPage" class="page">
     <div class="task-card">
-      <h2 data-translate-key="newTaskTitle">Manat AZ Tapşırığı</h2>
-      <p data-translate-key="newTaskReward">Kanala qoşul və <b>0.1 ₼</b> qazan!</p>
-      <button id="joinBtn" data-translate-key="joinChannel">Kanala Qoşul</button>
+      <h2 data-translate-key="joinGroupTaskTitle">Qrupa Qoşul</h2>
+      <p data-translate-key="taskReward1">Bu qrupa qoşul və <b>0.1 ₼</b> qazan!</p> 
+      <button id="joinBtn" data-translate-key="joinGroup">Qrupa Qoşul</button>
     </div>
-  </div>
-
+    </div>
+  
   <div id="walletPage" class="page">
     <div class="balance-card">
       <h3 data-translate-key="withdrawBalance">Balans</h3>
       <div class="amount"><span id="balance2">0.0000</span> <span id="currencySymbol2">₼</span></div>
       <div class="usd"><span id="secondaryCurrencySymbol2">$</span><span id="secondaryBalance2">0.0000</span> <span id="secondaryCurrencyText2">USD</span></div>
     </div>
-    <h2 style="text-align:center;margin-bottom:15px;color:var(--accent);font-weight:800;" data-translate-key="withdrawTitle">Çıxarış</h2>
-    
+    <h2 style="text-align:center;margin-bottom:12px;color:var(--text-dark);" data-translate-key="withdrawTitle">Çıxarış</h2>
     <div class="method-list" id="methods">
+      
       <div class="method" data-type="m10">
           <img src="https://i.postimg.cc/Kj94hVNG/unnamed.png" alt="M10 Logo" class="method-logo">
           <span class="method-text">M10</span>
-          <span class="min-withdraw-label" data-min-key="m10">3 ₼</span>
+          <span class="min-withdraw-label" data-min-key="m10">3 ₼</span> 
       </div>
       <div class="method" data-type="azercell">
           <img src="https://i.postimg.cc/qM5gmPqZ/applogo512.png" alt="Azercell Logo" class="method-logo">
@@ -483,18 +385,17 @@ body{
       </div>
       <div class="method" data-type="bank">
           <img src="https://i.postimg.cc/L6H0yWwZ/42492-bank-1024.png" alt="Bank Logo" class="method-logo bank-logo">
-          <span class="method-text" data-translate-key="bankCard">Bank Kartı</span>
+          <span class="method-text" data-translate-key="bankCard">Bank</span>
           <span class="min-withdraw-label" data-min-key="bank">3 ₼</span>
       </div>
       <div class="method" data-type="usdt">
           <img src="https://i.postimg.cc/X7HxsY98/Tether-USDT-Logo.png" alt="USDT Logo" class="method-logo">
           <span class="method-text">USDT</span>
-          <span class="min-withdraw-label" data-min-key="usdt">17 ₼</span>
+          <span class="min-withdraw-label" data-min-key="usdt">17 ₼</span> 
       </div>
     </div>
-    
     <div class="form" id="form">
-      <button id="backBtn" style="background:none;border:none;color:var(--accent);font-weight:700;font-size:16px;margin-bottom:10px;display:flex;align-items:center;">⬅ <span data-translate-key="back" style="margin-left: 5px;">Geri</span></button>
+      <button id="backBtn" style="background:none;border:none;color:var(--accent);font-weight:700;">⬅ <span data-translate-key="back">Geri</span></button>
       <input id="details" placeholder="">
       <input id="amount" type="number" placeholder="Məbləğ">
       <button id="withdrawBtn" data-translate-key="withdraw">Çıxarış Et</button>
@@ -504,39 +405,17 @@ body{
 
 </div>
 
-<div class="spacer-for-fixed-menu"></div> 
-
 <div class="menu">
   <button onclick="showPage('adsPage',this)" class="active" data-translate-key="home">Ev</button>
-  <button onclick="showPage('tasksPage',this)" data-translate-key="tasks">Tapşırıqlar</button>
+  <button onclick="showPage('tasksPage',this)" data-translate-key="tasks">Görevler</button>
   <button onclick="showPage('walletPage',this)" data-translate-key="wallet">Cüzdan</button>
-</div>
+  </div>
 <script>
-// --- TEMA İDARƏETMƏSİ ---
-const THEME_KEY = 'theme';
-const body = document.getElementById('body');
-const themeIcon = document.getElementById('themeIcon');
+// --- YERLİ SAXLAMA KÖMƏKÇİLƏRİ ---
+function safeGet(k,d=0){try{return JSON.parse(localStorage.getItem(k))??d;}catch{return d;}}
+function safeSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 
-function applyTheme(isDark) {
-    if (isDark) {
-        body.classList.add('dark-theme');
-        themeIcon.textContent = '🌙'; 
-        safeSet(THEME_KEY, 'dark');
-    } else {
-        body.classList.remove('dark-theme');
-        themeIcon.textContent = '🔆'; 
-        safeSet(THEME_KEY, 'light');
-    }
-}
-
-function toggleTheme() {
-    const isDark = body.classList.contains('dark-theme');
-    applyTheme(!isDark);
-}
-
-const savedTheme = safeGet(THEME_KEY, 'light');
-applyTheme(savedTheme === 'dark');
-
+// --- TEMA İDARƏETMƏSİ SİLİNDİ, ÇÜNKİ YALNIZ DARK TEMA QALDI ---
 
 // --- VALYUTA VƏ MƏZƏNNƏLƏR ---
 const EXCHANGE_RATES = {
@@ -545,18 +424,17 @@ const EXCHANGE_RATES = {
     AZN_TO_RUB: 46.45 
 };
 const CURRENCIES = {
-    // Sayt başlayanda Azərbaycan dilində olsun
-    'az': { main: 'AZN', symbol: '₼', secondary: 'USD', secondarySymbol: '$' }, 
+    'az': { main: 'AZN', symbol: '₼', secondary: 'USD', secondarySymbol: '$' },
     'tr': { main: 'TRY', symbol: '₺', secondary: 'USD', secondarySymbol: '$' },
     'en': { main: 'USD', symbol: '$', secondary: 'AZN', secondarySymbol: '₼' },
     'ru': { main: 'RUB', symbol: '₽', secondary: 'USD', secondarySymbol: '$' }
 };
 
-// DƏYİŞİKLİK 2: Reklam Gəliri 0.001 ₼
+// YENİLƏNDİ: Reklam Qazancı
 const AZN_REWARD = 0.001; 
-// DƏYİŞİKLİK 3: Yalnız bir tapşırıq (0.1 ₼) saxlanılır
+// YENİLƏNDİ: Tək Tapşırıq Qazancı
 const AZN_TASK_REWARDS = [0.1]; 
-// DƏYİŞİKLİK 1: Minimum Çəkim Limiti 3 ₼
+// YENİLƏNDİ: Minimum limitlər AZN ilə (3₼, USDT istisna olmaqla)
 const AZN_MIN_WITHDRAW = { m10: 3, azercell: 3, bakcell: 3, nar: 3, bank: 3, usdt: 17 }; 
 
 // --- TƏRCÜMƏ MƏLUMATLARI (DİL SÖZLÜYÜ) ---
@@ -564,17 +442,18 @@ function getLocalizedReward(lang) {
     let reward = AZN_REWARD;
     let symbol = CURRENCIES[lang].symbol;
     let currency = CURRENCIES[lang].main;
-    let format = (val) => val.toFixed(3); 
+    // Formatlama AZN üçün xüsusi olaraq 4 rəqəm saxlanıldı
+    let format = (val) => val.toFixed(4); 
 
     if (lang === 'tr') {
         reward = AZN_REWARD * EXCHANGE_RATES.AZN_TO_TRY;
-        format = (val) => val.toFixed(3); 
+        format = (val) => val.toFixed(3); // Məsələn 0.025
     } else if (lang === 'en') {
         reward = AZN_REWARD * EXCHANGE_RATES.AZN_TO_USD;
-        format = (val) => val.toFixed(5); 
+        format = (val) => val.toFixed(5); // Məsələn 0.00059
     } else if (lang === 'ru') {
         reward = AZN_REWARD * EXCHANGE_RATES.AZN_TO_RUB;
-        format = (val) => val.toFixed(3); 
+        format = (val) => val.toFixed(3); // Məsələn 0.046
     }
     
     return {
@@ -593,15 +472,11 @@ function getLocalizedTaskReward(lang, aznReward) {
 
     if (lang === 'tr') {
         localizedReward = aznReward * EXCHANGE_RATES.AZN_TO_TRY;
-        format = (val) => val.toFixed(2);
     } else if (lang === 'en') {
         localizedReward = aznReward * EXCHANGE_RATES.AZN_TO_USD;
         format = (val) => val.toFixed(3);
     } else if (lang === 'ru') {
         localizedReward = aznReward * EXCHANGE_RATES.AZN_TO_RUB;
-        format = (val) => val.toFixed(2);
-    } else { // AZN üçün format
-        format = (val) => val.toFixed(1);
     }
     
     return `<b>${format(localizedReward)} ${symbol}</b>`;
@@ -609,41 +484,40 @@ function getLocalizedTaskReward(lang, aznReward) {
 
 const TRANSLATIONS = {
     'az': {
-        pageTitle: 'Manat AZ',
-        loading: 'Yüklənir...', 
-        currentBalance: 'Cari Balans',
+        pageTitle: 'Qazanc Pay',
+        loading: 'Yüklənir...',
+        currentBalance: 'Balans',
         withdrawBalance: 'Balans',
-        dailyAds: 'Günlük Reklamlar', 
+        dailyAds: 'Günlük Reklamlar',
         adReward: (r) => `Hər reklama görə ${r} qazanın`, 
         watched: 'İzlənən',
         maximum: 'Maksimum',
-        maxCount: '100', 
+        maxCount: '100',
         progressText: 'İrəliləyiş: ',
-        watchAd: 'Reklam İzlə',
-        adLimitReached: '📣 Gündəlik limitə çatdınız! Sabah yenilənəcək.',
+        watchAd: 'Reklam İzle',
+        adLimitReached: '📣 Gündəlik limitə çatdınız!',
         watching: 'İzlənir...',
         rewardAdded: (r) => `✅ ${r} əlavə olundu!`, 
         wait: '⏳ {s}s gözləyin',
         
-        newTaskTitle: 'Manat AZ Tapşırığı',
-        newTaskReward: (r) => `Kanala qoşul və ${r} qazan!`,
-        joinChannel: 'Kanala Qoşul', // İSTƏK: Kanala Qoşul yazlsn
+        // YENİ TAPŞIRIQ TƏRCÜMƏLƏRİ
+        joinGroupTaskTitle: 'Qrupa Qoşul',
+        taskReward1: (r) => `Bu qrupa qoşul və ${r} qazan!`,
+        joinGroup: 'Qrupa Qoşul',
         
         withdrawTitle: 'Çıxarış',
         bankCard: 'Bank Kartı',
         back: 'Geri',
         withdraw: 'Çıxarış Et',
-        methodError: 'Zəhmət olmasa, çıxarış metodunu seçin',
-        detailsError: 'Ödəniş detallarını (nömrə, kart nömrəsi) daxil edin',
+        methodError: 'Metod seçin',
+        detailsError: 'Detalları daxil edin',
         amountError: 'Məbləği düzgün daxil edin',
-        minAmount: (min) => `Minimum çıxarış məbləği ${min}`, 
-        balanceError: 'Balansınız bu çıxarış üçün kifayət etmir',
-        withdrawSuccess: '✅ Çıxarış sorğusu uğurla göndərildi! 48 saat ərzində yerinə yetiriləcək.',
-        
+        minAmount: (min) => `Minimum məbləğ ${min}`, 
+        balanceError: 'Balans kifayət etmir',
+        withdrawSuccess: '✅ Çıxarış göndərildi! 48 saat ərzində yerinə yetiriləcək.',
         home: 'Ev',
-        tasks: 'Tapşırıqlar', 
+        tasks: 'Görevler',
         wallet: 'Cüzdan',
-        
         placeholderDetails_m10: '10 rəqəmli nömrə',
         placeholderDetails_azercell: '050xxxxxxx',
         placeholderDetails_bakcell: '055xxxxxxx',
@@ -654,9 +528,9 @@ const TRANSLATIONS = {
         completed: 'Tamamlandı', 
     },
     'en': {
-        pageTitle: 'Manat AZ',
+        pageTitle: 'Qazanc Pay',
         loading: 'Loading...',
-        currentBalance: 'Current Balance',
+        currentBalance: 'Balance',
         withdrawBalance: 'Balance',
         dailyAds: 'Daily Ads',
         adReward: (r) => `Earn ${r} for each ad`, 
@@ -665,25 +539,26 @@ const TRANSLATIONS = {
         maxCount: '100',
         progressText: 'Progress: ',
         watchAd: 'Watch Ad',
-        adLimitReached: '📣 Daily limit reached! Will reset tomorrow.',
+        adLimitReached: '📣 Daily limit reached!',
         watching: 'Watching...',
         rewardAdded: (r) => `✅ ${r} added!`, 
         wait: '⏳ {s}s wait',
         
-        newTaskTitle: 'Manat AZ Task',
-        newTaskReward: (r) => `Join channel and earn ${r}!`,
-        joinChannel: 'Join Channel',
+        // YENİ TAPŞIRIQ TƏRCÜMƏLƏRİ
+        joinGroupTaskTitle: 'Join Group',
+        taskReward1: (r) => `Join this group and earn ${r}!`,
+        joinGroup: 'Join Group',
         
         withdrawTitle: 'Withdrawal',
         bankCard: 'Bank Card',
         back: 'Back',
         withdraw: 'Withdraw',
-        methodError: 'Please select a withdrawal method',
-        detailsError: 'Enter payment details (number, card number)',
-        amountError: 'Enter the correct amount',
-        minAmount: (min) => `Minimum withdrawal amount ${min}`,
-        balanceError: 'Insufficient balance for this withdrawal',
-        withdrawSuccess: '✅ Withdrawal request successfully sent! It will be executed within 48 hours.',
+        methodError: 'Select a method',
+        detailsError: 'Enter details',
+        amountError: 'Enter correct amount',
+        minAmount: (min) => `Minimum amount ${min}`,
+        balanceError: 'Insufficient balance',
+        withdrawSuccess: '✅ Withdrawal sent! It will be executed within 48 hours.',
         home: 'Home',
         tasks: 'Tasks',
         wallet: 'Wallet',
@@ -697,9 +572,9 @@ const TRANSLATIONS = {
         completed: 'Completed', 
     },
     'tr': {
-        pageTitle: 'Manat AZ',
+        pageTitle: 'Qazanc Pay',
         loading: 'Yükleniyor...',
-        currentBalance: 'Mevcut Bakiye',
+        currentBalance: 'Bakiye',
         withdrawBalance: 'Bakiye',
         dailyAds: 'Günlük Reklamlar',
         adReward: (r) => `Her reklam için ${r} kazanın`, 
@@ -708,26 +583,27 @@ const TRANSLATIONS = {
         maxCount: '100',
         progressText: 'İlerleme: ',
         watchAd: 'Reklam İzle',
-        adLimitReached: '📣 Günlük sınıra ulaşıldı! Yarın sıfırlanacak.',
+        adLimitReached: '📣 Günlük sınıra ulaştınız!',
         watching: 'İzleniyor...',
         rewardAdded: (r) => `✅ ${r} eklendi!`, 
         wait: '⏳ {s}sn bekleyin',
         
-        newTaskTitle: 'Manat AZ Görevi',
-        newTaskReward: (r) => `Kanala katıl ve ${r} kazan!`,
-        joinChannel: 'Kanala Katıl',
+        // YENİ TAPŞIRIQ TƏRCÜMƏLƏRİ
+        joinGroupTaskTitle: 'Gruba Katıl',
+        taskReward1: (r) => `Bu gruba katıl ve ${r} kazan!`,
+        joinGroup: 'Gruba Katıl',
         
         withdrawTitle: 'Para Çekme',
         bankCard: 'Banka Kartı',
         back: 'Geri',
         withdraw: 'Para Çek',
-        methodError: 'Lütfen bir para çekme yöntemi seçin',
-        detailsError: 'Ödeme detaylarını (numara, kart numarası) girin',
+        methodError: 'Yöntem seçin',
+        detailsError: 'Bilgileri girin',
         amountError: 'Miktarı doğru girin',
-        minAmount: (min) => `Minimum çekim miktarı ${min}`,
-        balanceError: 'Bakiyeniz bu çekim için yetersiz',
-        withdrawSuccess: '✅ Çekim talebi başarıyla gönderildi! 48 saat içinde tamamlanacaktır.',
-        home: 'Ev',
+        minAmount: (min) => `Minimum miktar ${min}`,
+        balanceError: 'Yetersiz bakiye',
+        withdrawSuccess: '✅ Çekim talebi gönderildi! 48 saat içinde tamamlanacaktır.',
+        home: 'Ana Sayfa',
         tasks: 'Görevler',
         wallet: 'Cüzdan',
         placeholderDetails_m10: '10 haneli M10 numarası',
@@ -740,9 +616,9 @@ const TRANSLATIONS = {
         completed: 'Tamamlandı', 
     },
     'ru': { 
-        pageTitle: 'Manat AZ',
+        pageTitle: 'Qazanc Pay',
         loading: 'Загрузка...',
-        currentBalance: 'Текущий Баланс',
+        currentBalance: 'Баланс',
         withdrawBalance: 'Баланс',
         dailyAds: 'Ежедневная Реклама',
         adReward: (r) => `Зарабатывайте ${r} за каждую рекламу`, 
@@ -751,25 +627,26 @@ const TRANSLATIONS = {
         maxCount: '100',
         progressText: 'Прогресс: ',
         watchAd: 'Смотреть Рекламу',
-        adLimitReached: '📣 Достигнут дневной лимит! Обновится завтра.',
+        adLimitReached: '📣 Достигнут дневной лимит!',
         watching: 'Просмотр...',
         rewardAdded: (r) => `✅ ${r} добавлено!`, 
         wait: '⏳ {s}с ожидайте',
         
-        newTaskTitle: 'Задание Manat AZ',
-        newTaskReward: (r) => `Подпишитесь на канал и заработайте ${r}!`,
-        joinChannel: 'Подписаться',
+        // YENİ TAPŞIRIQ TƏRCÜMƏLƏRİ
+        joinGroupTaskTitle: 'Вступить в Группу',
+        taskReward1: (r) => `Вступите в эту группу и заработайте ${r}!`,
+        joinGroup: 'Вступить в Группу',
         
         withdrawTitle: 'Вывод Средств',
         bankCard: 'Банковская Карта',
         back: 'Назад',
         withdraw: 'Вывести',
-        methodError: 'Пожалуйста, выберите способ вывода средств',
-        detailsError: 'Введите платежные данные (номер, номер карты)',
+        methodError: 'Выберите способ',
+        detailsError: 'Введите данные',
         amountError: 'Введите правильную сумму',
-        minAmount: (min) => `Минимальная сумма вывода ${min}`,
-        balanceError: 'Недостаточно средств для этого вывода',
-        withdrawSuccess: '✅ Заявка на вывод успешно отправлена! Будет исполнена в течение 48 часов.',
+        minAmount: (min) => `Минимальная сумма ${min}`,
+        balanceError: 'Недостаточно средств',
+        withdrawSuccess: '✅ Заявка отправлена! Будет исполнена в течение 48 часов.',
         home: 'Главная',
         tasks: 'Задания',
         wallet: 'Кошелек',
@@ -784,14 +661,11 @@ const TRANSLATIONS = {
     }
 };
 
-let currentLang = localStorage.getItem('lang') || 'az'; // İSTƏK: Sayt başlayanda Azərbaycan dilində olsun
+let currentLang = localStorage.getItem('lang') || 'az';
 
 const LIMIT = 100;
 const BAL_KEY='bal',COUNT_KEY='cnt',RESET_KEY='resetTime';
-const JOIN_KEY='joined'; 
-
-function safeGet(k,d=0){try{return JSON.parse(localStorage.getItem(k))??d;}catch{return d;}}
-function safeSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+const JOIN_KEY='joinedGroup1'; 
 
 let bal=parseFloat(safeGet(BAL_KEY,0));
 let cnt=parseInt(safeGet(COUNT_KEY,0));
@@ -831,6 +705,7 @@ function update(){
   let mainFormat = (val) => val.toFixed(4);
   let secondaryFormat = (val) => val.toFixed(4);
   
+  // Balansı cari dilin valyutasına çeviririk
   if (lang === 'tr') {
       mainBalance = bal * rates.AZN_TO_TRY;
       secondaryBalance = bal * rates.AZN_TO_USD;
@@ -851,15 +726,15 @@ function update(){
   } else { // AZ
       mainBalance = bal;
       secondaryBalance = bal * rates.AZN_TO_USD;
-      mainFormat = (val) => val.toFixed(4); // AZN üçün 4 rəqəm
-      secondaryFormat = (val) => val.toFixed(4);
   }
   
+  // Əsas balans
   document.getElementById('balance').textContent = mainFormat(mainBalance);
   document.getElementById('balance2').textContent = mainFormat(mainBalance);
   document.getElementById('currencySymbol').textContent = mainSymbol;
   document.getElementById('currencySymbol2').textContent = mainSymbol;
   
+  // Köməkçi balans (USD/AZN)
   document.getElementById('secondaryBalance').textContent = secondaryFormat(secondaryBalance);
   document.getElementById('secondaryBalance2').textContent = secondaryFormat(secondaryBalance);
   document.getElementById('secondaryCurrencySymbol').textContent = secondarySymbol;
@@ -875,40 +750,39 @@ function update(){
   safeSet(COUNT_KEY,cnt);
 }
 
-// Tapşırıqlar düymələrini yeniləyən funksiya
+// Tapşırıqlar düymələrini fərdi olaraq yeniləyən funksiya
 function updateTaskButtons() {
     const t = TRANSLATIONS[currentLang];
     
-    // Yalnız bir tapşırıq üçün yeniləyin
-    taskButtons.forEach((task, index) => {
-        const btn = document.getElementById(task.id);
-        if (!btn) return;
+    // YENİLƏNDİ: Yalnız 1 task var
+    const task = taskButtons[0];
+    const btn = document.getElementById(task.id);
+    if (!btn) return;
 
-        // Task 1-in mətnini yeniləyin
-        const taskRewardKey = `newTaskReward`;
-        const localizedRewardText = getLocalizedTaskReward(currentLang, AZN_TASK_REWARDS[index]);
-        const rewardEl = btn.parentElement.querySelector(`p[data-translate-key="${taskRewardKey}"]`);
-        if (rewardEl) {
-            rewardEl.innerHTML = t[taskRewardKey](localizedRewardText);
+    // Mükafat mətnini yenilə
+    const taskRewardKey = `taskReward1`;
+    const localizedRewardText = getLocalizedTaskReward(currentLang, AZN_TASK_REWARDS[0]);
+    const rewardEl = btn.parentElement.querySelector(`p[data-translate-key="${taskRewardKey}"]`);
+    if (rewardEl) {
+        rewardEl.innerHTML = t[taskRewardKey](localizedRewardText);
+    }
+    
+    if (localStorage.getItem(task.key)){
+        btn.classList.remove('waiting'); 
+        btn.classList.add('completed');
+        btn.textContent = t.completed;
+        btn.disabled = true; 
+    } else {
+        if (!btn.classList.contains('waiting')) {
+             btn.classList.remove('completed');
+             btn.disabled = false;
+             
+             const key = btn.getAttribute('data-translate-key');
+             if(t[key]) {
+                 btn.textContent = t[key];
+             }
         }
-        
-        if (localStorage.getItem(task.key)){
-            btn.classList.remove('waiting'); 
-            btn.classList.add('completed');
-            btn.textContent = t.completed;
-            btn.disabled = true; 
-        } else {
-            if (!btn.classList.contains('waiting')) {
-                 btn.classList.remove('completed');
-                 btn.disabled = false;
-                 
-                 const key = btn.getAttribute('data-translate-key');
-                 if(t[key]) {
-                     btn.textContent = t[key];
-                 }
-            }
-        }
-    });
+    }
 }
 
 // Minimum çıxarış məbləğini formatlayan funksiya
@@ -927,6 +801,8 @@ function getLocalizedMinAmount(methodType, lang) {
         minAmount = aznMin * EXCHANGE_RATES.AZN_TO_RUB;
     } else { // AZN üçün
         format = (val) => val.toFixed(0); 
+        // USDT üçün AZN olaraq 17₼ göstərsin.
+        if (methodType === 'usdt') format = (val) => val.toFixed(0);
     }
     
     return `${format(minAmount)} ${currencyInfo.symbol}`;
@@ -945,7 +821,7 @@ function setPlaceholders(methodType) {
     details.placeholder = t[detailsKey] || '';
     
     const minTextOnly = localizedMinAmount.trim(); 
-    amount.placeholder = `${t.placeholderAmount} (${currency}) - Min: ${minTextOnly}`;
+    amount.placeholder = `${t.placeholderAmount} (${currency}) - ${minTextOnly}`;
 }
 
 // Tərcümələri tətbiq edir
@@ -955,6 +831,7 @@ function applyTranslations(lang) {
 
     document.getElementById('pageTitle').textContent = t.pageTitle;
     document.getElementById('currentLangDisplay').textContent = lang.toUpperCase(); 
+    document.getElementById('langArrow').textContent = '⬇️'; 
 
     document.getElementById('langAzBtn').classList.remove('active');
     document.getElementById('langEnBtn').classList.remove('active');
@@ -968,24 +845,30 @@ function applyTranslations(lang) {
     }
 
     const rewardInfo = getLocalizedReward(lang);
-
+    
     document.querySelectorAll('[data-translate-key]').forEach(el => {
         const key = el.getAttribute('data-translate-key');
         if (typeof t[key] === 'function') {
+             // Reklam mükafatı
              if (key === 'adReward') {
                 const formattedRewardText = `<b>${rewardInfo.formattedReward} ${rewardInfo.symbol}</b>`;
                 el.innerHTML = t[key](formattedRewardText);
-             } else if (key === 'newTaskReward') {
-                const localizedRewardText = getLocalizedTaskReward(lang, AZN_TASK_REWARDS[0]);
-                el.innerHTML = t[key](localizedRewardText);
+             } 
+             // YENİ TAPŞIRIQ MÜKAFATI
+             else if (key === 'taskReward1') { 
+                 const localizedRewardText = getLocalizedTaskReward(currentLang, AZN_TASK_REWARDS[0]);
+                 el.innerHTML = t[key](localizedRewardText);
              }
+
         } else if (t[key]) {
             el.innerHTML = t[key];
         }
     });
     
+    // Tapşırıq mükafatlarını yenilə
     updateTaskButtons(); 
 
+    // Çıxarış metodları üzərindəki minimum məbləğləri yenilə
     document.querySelectorAll('.min-withdraw-label').forEach(label => {
         const methodType = label.getAttribute('data-min-key');
         if (methodType) {
@@ -998,7 +881,7 @@ function applyTranslations(lang) {
         progressTextSpan.textContent = `${cnt}/${LIMIT}`;
     }
     
-    update(); 
+    update(); // Valyutaları yenilə
 
     document.querySelectorAll('.menu button').forEach(button => {
         const key = button.getAttribute('data-translate-key');
@@ -1016,12 +899,15 @@ function applyTranslations(lang) {
 function toggleDropdown() {
     const dropdown = document.getElementById('langDropdown');
     dropdown.classList.toggle('show');
-    document.getElementById('langArrow').textContent = dropdown.classList.contains('show') ? '▲' : '▼'; 
+    document.getElementById('langArrow').textContent = dropdown.classList.contains('show') ? '▲' : '⬇️'; 
 }
 
 function setLang(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
+    
+    document.getElementById('langArrow').textContent = ''; 
+    
     applyTranslations(lang);
     toggleDropdown(); 
 }
@@ -1032,22 +918,18 @@ adBtn.onclick=()=>{
   const t = TRANSLATIONS[currentLang];
   const rewardInfo = getLocalizedReward(currentLang);
   
-  if(cnt>=LIMIT){ 
-      msg.textContent=t.adLimitReached; 
-      msg.style.color = 'var(--secondary-accent)';
-      msg.style.fontWeight = '700';
-      return; 
-  }
+  if(cnt>=LIMIT){ msg.textContent=t.adLimitReached; return; }
   
   adBtn.disabled=true; 
   adBtn.classList.add('waiting');
   
-  let s=10; 
+  let s=10; // Geri sayım saniyəsi
   
-  msg.innerHTML=`<span style="color: var(--accent); font-weight:700;">${t.wait.replace('{s}', s)}</span><div id="timerBar" class="timer-bar-container"></div>`;
+  // Mesaj və Timer Barı ilkin vəziyyətdə göstər
+  msg.innerHTML=`<span>${t.wait.replace('{s}', s)}</span><div id="timerBar" class="timer-bar-container"></div>`;
 
-  // DƏYİŞİKLİK 2: show_10242960() show_10024800() ilə əvəz olundu
-  try{if(typeof show_10024800==='function'){show_10024800();}}catch(e){} 
+  // Reklamı göstər (mümkünsə)
+  try{if(typeof show_10258575==='function'){show_10258575();}}catch(e){} // YENİ REKLAM SKRİPTİ ZONASI
   
   let rewarded = false; 
 
@@ -1057,7 +939,7 @@ adBtn.onclick=()=>{
     
     if(timerBar){
         const progressPercentage = (10 - s) / 10 * 100;
-        const hue = 120 - (10 - s) * 12; 
+        const hue = (10 - s) * 36; 
         const color = `hsl(${hue}, 85%, 50%)`; 
         
         timerBar.style.width=`${progressPercentage}%`;
@@ -1065,22 +947,23 @@ adBtn.onclick=()=>{
         timerBar.style.boxShadow = `0 0 8px ${color}`; 
     }
     
+    // PUL ƏLAVƏ EDİLMƏSİ (1 saniyə keçdikdə, yəni s==9 olanda)
     if(s === 9 && !rewarded) { 
-        // Reklam Gəliri AZN_REWARD olaraq istifadə edilir (0.001 ₼)
-        bal+=AZN_REWARD; 
+        bal+=AZN_REWARD; // Balans həmişə AZN ilə artırılır
         cnt++; 
         update(); 
         rewarded = true; 
         
+        // Mükafat mesajını yaradırıq
         const rewardMsgElement = document.createElement('div');
         const formattedRewardText = `<b>${rewardInfo.formattedReward} ${rewardInfo.symbol}</b>`;
         rewardMsgElement.innerHTML = t.rewardAdded(formattedRewardText);
         rewardMsgElement.style.marginTop = '10px';
         rewardMsgElement.style.fontWeight = 'bold';
         rewardMsgElement.id = 'rewardMsg';
-        rewardMsgElement.style.color = 'var(--accent)';
         msg.appendChild(rewardMsgElement); 
         
+        // MÜKAFAT MESAJININ GİZLƏDİLMƏSİ (2 saniyə sonra)
         setTimeout(() => {
             const currentRewardMsg = document.getElementById('rewardMsg');
             if (currentRewardMsg) {
@@ -1089,9 +972,11 @@ adBtn.onclick=()=>{
         }, 2000); 
     }
     
+    // Geri sayım mətnini yeniləyirik
     const msgSpan = msg.querySelector('span');
     if (msgSpan) msgSpan.textContent = t.wait.replace('{s}', s);
     
+    // 10 saniyə bitdikdə
     if(s<=0){
       clearInterval(tInterval);
       
@@ -1105,15 +990,17 @@ adBtn.onclick=()=>{
 
 
 // --- TAPŞIRIQLAR FUNKSİYALARI ---
+// YENİLƏNDİ: Yalnız tək bir tapşırıq var, 5 saniyəlik gözləmə.
 const taskButtons = [
-    { id: 'joinBtn', key: JOIN_KEY, reward: AZN_TASK_REWARDS[0], url: 'https://t.me/manatazicmasi' }
+    { id: 'joinBtn', key: JOIN_KEY, reward: AZN_TASK_REWARDS[0], url: 'https://t.me/qazancpay', waitTime: 5000 }
 ];
 
+// Bütün tapşırıqları dövr edib klik funksiyasını əlavə edirik
 taskButtons.forEach(task => {
     const btn = document.getElementById(task.id);
     if (!btn) return;
     
-    // Yüklənərkən tamamlanmış halı yoxla
+    // Yüklənmə zamanı ilkin yoxlama
     if (localStorage.getItem(task.key)){
         const completedText = TRANSLATIONS[currentLang].completed;
         btn.classList.add('completed');
@@ -1132,28 +1019,42 @@ taskButtons.forEach(task => {
         
         btn.disabled = true;
         btn.classList.add('waiting'); 
-        btn.textContent = t.wait.replace('{s}', '3');
         
-        setTimeout(() => {
-            
-            // AZN ilə balansı artır
-            bal += task.reward; 
-            safeSet(BAL_KEY, bal);
-            
-            localStorage.setItem(task.key, '1');
-            
-            update(); // Balansın yenilənməsi
-            
-            btn.classList.remove('waiting');
-            btn.classList.add('completed');
-            btn.textContent = t.completed;
-            btn.disabled = true;
-            
-            console.log(`✅ +${task.reward} ₼ əlavə olundu!`);
-            
-        }, 3000); 
+        let s = task.waitTime / 1000;
+        
+        const updateWaitingText = () => {
+             btn.textContent = t.wait.replace('{s}', s);
+             s--;
+        };
+        
+        updateWaitingText(); // Birinci dəfə dərhal göstər
+        
+        const waitInterval = setInterval(() => {
+            if (s >= 0) {
+                 updateWaitingText();
+            } else {
+                 clearInterval(waitInterval);
+                 
+                 // Balans həmişə AZN ilə artırılır
+                 bal += task.reward; 
+                 safeSet(BAL_KEY, bal);
+                 
+                 localStorage.setItem(task.key, '1');
+                 
+                 update();
+                 
+                 btn.classList.remove('waiting');
+                 btn.classList.add('completed');
+                 btn.textContent = t.completed;
+                 btn.disabled = true;
+                 
+                 console.log(`✅ +${task.reward} ₼ əlavə olundu!`);
+            }
+        }, 1000); // Hər saniyə yenilə
+
     };
 });
+
 
 // Səhifə Naviqasiyası
 function showPage(id, btn){
@@ -1164,13 +1065,6 @@ function showPage(id, btn){
   
   if (id === 'tasksPage') {
     updateTaskButtons();
-  }
-  
-  if (id === 'walletPage') {
-    document.getElementById('methods').style.display = 'flex';
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('alert').style.display = 'none';
-    type = '';
   }
 }
 
@@ -1206,36 +1100,52 @@ document.getElementById('withdrawBtn').onclick=()=>{
   const amt = parseFloat(amount.value);
   alertBox.style.display='none';
   const t = TRANSLATIONS[currentLang];
-  
+  const currencyInfo = CURRENCIES[currentLang];
+
   if(!type){ showErr(t.methodError); return; }
   if(!det){ showErr(t.detailsError); return; }
   if(isNaN(amt) || amt <= 0){ showErr(t.amountError); return; }
   
+  // Minimal məbləği cari valyutaya çevir
   const aznMin = AZN_MIN_WITHDRAW[type];
-  let currentBalanceInAZN = bal;
-  let currentAmountInAZN = amt;
-
-  // Çıxarışın yoxlanılması üçün məbləği AZN-ə çevir
+  let minAmount = aznMin;
+  
   if (currentLang === 'tr') {
-    currentAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_TRY;
+    minAmount = aznMin * EXCHANGE_RATES.AZN_TO_TRY;
   } else if (currentLang === 'en') {
-    currentAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_USD;
+    minAmount = aznMin * EXCHANGE_RATES.AZN_TO_USD;
   } else if (currentLang === 'ru') {
-    currentAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_RUB;
+    minAmount = aznMin * EXCHANGE_RATES.AZN_TO_RUB;
   }
   
-  // Minimum limit yoxlaması (AZN ilə)
-  if(currentAmountInAZN < aznMin){ 
-    showErr(t.minAmount(getLocalizedMinAmount(type, currentLang))); return; 
+  // Cari balansı cari valyutaya çevir
+  let currentBalanceInLang = bal; 
+  if (currentLang === 'tr') {
+      currentBalanceInLang = bal * EXCHANGE_RATES.AZN_TO_TRY;
+  } else if (currentLang === 'en') {
+      currentBalanceInLang = bal * EXCHANGE_RATES.AZN_TO_USD;
+  } else if (currentLang === 'ru') {
+      currentBalanceInLang = bal * EXCHANGE_RATES.AZN_TO_RUB;
   }
   
-  // Balans yoxlaması (AZN ilə)
-  if(currentAmountInAZN > currentBalanceInAZN){ 
-    showErr(t.balanceError); return; 
+  // Minimum limit yoxlaması
+  if(amt < minAmount){ showErr(t.minAmount(getLocalizedMinAmount(type, currentLang))); return; }
+  
+  // Balans yoxlaması
+  if(amt > currentBalanceInLang){ showErr(t.balanceError); return; }
+
+  // Çıxarılacaq məbləği AZN-ə çevir (Çünki balans AZN-də saxlanılır)
+  let withdrawalAmountInAZN = amt;
+  if (currentLang === 'tr') {
+    withdrawalAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_TRY;
+  } else if (currentLang === 'en') {
+    withdrawalAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_USD;
+  } else if (currentLang === 'ru') {
+    withdrawalAmountInAZN = amt / EXCHANGE_RATES.AZN_TO_RUB;
   }
 
   // Çıxarışın göndərilməsi simulyasiyası
-  bal -= currentAmountInAZN; 
+  bal -= withdrawalAmountInAZN; // AZN-də çıxarış
   safeSet(BAL_KEY,bal);
   update();
 
@@ -1243,6 +1153,7 @@ document.getElementById('withdrawBtn').onclick=()=>{
   alertBox.className='alert success';
   alertBox.style.display='block';
 
+  // Formanı bağla və metodları geri göstər
   setTimeout(()=>{
     form.style.display='none';
     document.getElementById('methods').style.display='flex';
@@ -1258,11 +1169,13 @@ function showErr(msg){
   alertBox.style.display='block';
 }
 
-// İLKİN YÜKLƏNMƏ
+// --- İLKİN YÜKLƏNMƏ VƏ LOADING SCREEN MƏNTİQİ ---
+
+// Funksionallığı yüklə
 update();
 applyTranslations(currentLang); 
 
-// Yüklənmə ekranı
+// Loading Screen-i 3 saniyədən sonra bağla
 setTimeout(()=>{
   const s=document.getElementById("loadingScreen");
   s.style.opacity="0";
